@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyAccountSync</string>
+    <string name="account_type">com.example.myaccountsync.accountsync.account</string>
+</resources>
