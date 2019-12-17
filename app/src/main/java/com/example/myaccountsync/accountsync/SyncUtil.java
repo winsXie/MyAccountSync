@@ -10,7 +10,7 @@ public class SyncUtil {
     private static final String ACCOUNT_NAME = "MyAccountSync";
     private static final String ACCOUNT_TYPE = "com.example.myaccountsync.accountsync.account";
     public static final String CONTENT_AUTHORITY = "com.example.myaccountsync.accountsync.provide";
-    private static final long SYNC_FREQUENCY =  930;//seconds
+    private static final long SYNC_FREQUENCY =  2*60;//seconds
 
     public static void CreateSyncAccount(Context context) {
         // Create account, if it's missing. (Either first run, or user has deleted account.)
@@ -26,6 +26,8 @@ public class SyncUtil {
             // on other scheduled syncs and network utilization.
             ContentResolver.addPeriodicSync(
                     account, CONTENT_AUTHORITY, new Bundle(),SYNC_FREQUENCY);
+        }else {
+            TriggerRefresh();
         }
 
     }
